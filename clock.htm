@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Javascript clock</title>
+    <script>
+         var Timer; 
+         function onStart()
+         {
+             //setTimeout(Show, 500);
+             var myClock = document.getElementById("myClock");
+             if (myClock.value=="開始") {
+                Timer = setInterval(Show,500);
+                myClock.value="停止";
+             }
+             else
+             {
+                clearInterval(Timer); 
+                myClock.value="開始";
+             } 
+         }
+         
+         function Show()
+         {
+             var now = Date();
+             document.getElementById("clock").innerHTML=now;
+            // setTimeout(Show, 500);             
+         }
+         
+    
+    </script> 
+</head>
+<body >
+    <input id="myClock" type="button" value="開始" onclick="onStart();">
+    <div id="clock">
+        
+    </div>   
+</body>    
+</html>
